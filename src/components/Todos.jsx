@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, toggleCompleted  }) => {
   return (
     <div style={styles.container}>
       {todos.map((todo) => {
-        return <TodoItem key={todo.id} todo={todo} />
+        return (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            toggleCompleted={toggleCompleted}
+          />
+        )
       })}
     </div>
   )
@@ -19,7 +25,8 @@ const styles = {
 }
 
 Todos.propTypes = {
-  todos: PropTypes.array
+  todos: PropTypes.array,
+  toggleCompleted: PropTypes.func
 };
 
 export default Todos;
